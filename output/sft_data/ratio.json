@@ -1,0 +1,22 @@
+{
+    "gpt4all.jsonl": 0.04051351783714606,
+    "Vicuna.jsonl": 0.03692409214525676,
+    "instruct.jsonl": 0.04378299472084467,
+    "HC3_ChatGPT.jsonl": 0.0973144296912494,
+    "alpaca_data.jsonl": 0.03693409054551272,
+    "sharegpt.jsonl": 0.06993880979043353,
+    "GPTeacher.jsonl": 0.054021356582946725,
+    "translate_en.jsonl": 0.0,
+    "dolly.jsonl": 0.029655255159174533,
+    "alpaca_gpt4_data.jsonl": 0.06749920012797953,
+    "translate_zh.jsonl": 0.0,
+    "finance_en.jsonl": 0.0435530315149576,
+    "belle_data0.5M_cn.jsonl": 0.03922372420412734,
+    "HC3_Human.jsonl": 0.042913133898576226,
+    "HC3_Chinese_ChatGPT.jsonl": 0.07348824188129899,
+    "sharegpt_zh.jsonl": 0.07063869780835066,
+    "instinwild_en.jsonl": 0.07859742441209407,
+    "instinwild_ch.jsonl": 0.07606782914733642,
+    "alpaca_gpt4_data_zh.jsonl": 0.0626199808030715,
+    "HC3_Chinese_Human.jsonl": 0.03631418972964326
+}

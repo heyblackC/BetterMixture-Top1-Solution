@@ -1,0 +1,47 @@
+{
+  "add_bos_token": false,
+  "add_eos_token": false,
+  "added_tokens_decoder": {
+    "0": {
+      "content": "<unk>",
+      "lstrip": false,
+      "normalized": true,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "1": {
+      "content": "<s>",
+      "lstrip": false,
+      "normalized": true,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    },
+    "2": {
+      "content": "</s>",
+      "lstrip": false,
+      "normalized": true,
+      "rstrip": false,
+      "single_word": false,
+      "special": true
+    }
+  },
+  "auto_map": {
+    "AutoTokenizer": [
+      "tokenization_baichuan.BaichuanTokenizer",
+      null
+    ]
+  },
+  "bos_token": "<s>",
+  "clean_up_tokenization_spaces": false,
+  "eos_token": "</s>",
+  "model_max_length": 4096,
+  "pad_token": "<unk>",
+  "padding_side": "right",
+  "sp_model_kwargs": {},
+  "split_special_tokens": false,
+  "tokenizer_class": "BaichuanTokenizer",
+  "unk_token": "<unk>",
+  "use_fast": false
+}

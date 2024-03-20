@@ -1,0 +1,536 @@
+[2024-02-17 22:07:49,741] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-17 22:07:51,363] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-02-17 22:07:51,364] [INFO] [runner.py:568:main] cmd = /opt/conda/envs/zk_llm/bin/python3.10 -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=39465 --enable_each_rank_log=None /home/aiflow/work/zelan/data_explore/dj_mixture_challenge/toolkit/training/src/train_bash.py --deepspeed /home/aiflow/work/zelan/data_explore/dj_mixture_challenge/toolkit/training/examples/ds_config_stage2.json --stage sft --model_name_or_path baichuan-inc/Baichuan2-7B-Base --do_train --dataset ./output/sft_data/mixture.jsonl --finetuning_type lora --lora_alpha 16 --lora_rank 8 --template alpaca --lora_target W_pack --output_dir ./output/lora_model --overwrite_cache --per_device_train_batch_size 2 --gradient_accumulation_steps 64 --lr_scheduler_type cosine --logging_steps 1 --save_steps 100000 --overwrite_output_dir --learning_rate 1e-3 --num_train_epochs 3.0 --plot_loss --weight_decay 0 --warmup_ratio 0.03 --max_tokens 1e7 --load_in_8bit False --sft_packing True --bf16
+[2024-02-17 22:07:53,641] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-17 22:07:55,143] [INFO] [launch.py:138:main] 0 NV_LIBNCCL_DEV_PACKAGE=libnccl-dev=2.8.4-1+cuda11.2
+[2024-02-17 22:07:55,143] [INFO] [launch.py:138:main] 0 NCCL_VERSION=2.8.4-1
+[2024-02-17 22:07:55,143] [INFO] [launch.py:138:main] 0 NV_LIBNCCL_PACKAGE_VERSION=2.8.4-1
+[2024-02-17 22:07:55,143] [INFO] [launch.py:138:main] 0 NV_LIBNCCL_PACKAGE=libnccl2=2.8.4-1+cuda11.2
+[2024-02-17 22:07:55,143] [INFO] [launch.py:138:main] 0 NV_LIBNCCL_DEV_PACKAGE_NAME=libnccl-dev
+[2024-02-17 22:07:55,143] [INFO] [launch.py:138:main] 0 NV_LIBNCCL_PACKAGE_NAME=libnccl2
+[2024-02-17 22:07:55,143] [INFO] [launch.py:138:main] 0 NV_LIBNCCL_DEV_PACKAGE_VERSION=2.8.4-1
+[2024-02-17 22:07:55,143] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2024-02-17 22:07:55,143] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=2, node_rank=0
+[2024-02-17 22:07:55,143] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2024-02-17 22:07:55,143] [INFO] [launch.py:163:main] dist_world_size=2
+[2024-02-17 22:07:55,144] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2024-02-17 22:07:58,970] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-17 22:07:58,985] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-17 22:08:01,004] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-17 22:08:01,004] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-02-17 22:08:01,005] [INFO] [comm.py:637:init_distributed] cdb=None
+02/17/2024 22:08:01 - WARNING - llmtuner.model.parser - `ddp_find_unused_parameters` needs to be set as False for LoRA in DDP training.
+02/17/2024 22:08:01 - INFO - llmtuner.model.parser - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/17/2024 22:08:01 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/aiflow/work/zelan/data_explore/dj_mixture_challenge/toolkit/training/examples/ds_config_stage2.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=64,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.001,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./output/lora_model/runs/Feb17_22-08-01_86b1db86e2c1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=./output/lora_model,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=2,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=./output/lora_model,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=100000,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+sortish_sampler=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.03,
+warmup_steps=0,
+weight_decay=0.0,
+)
+02/17/2024 22:08:01 - INFO - llmtuner.data.loader - Loading dataset ./output/sft_data/mixture.jsonl...
+02/17/2024 22:08:02 - WARNING - llmtuner.model.parser - `ddp_find_unused_parameters` needs to be set as False for LoRA in DDP training.
+02/17/2024 22:08:02 - INFO - llmtuner.model.parser - Process rank: 1, device: cuda:1, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/17/2024 22:08:02 - INFO - llmtuner.model.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=False,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/aiflow/work/zelan/data_explore/dj_mixture_challenge/toolkit/training/examples/ds_config_stage2.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=64,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.001,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=./output/lora_model/runs/Feb17_22-08-00_86b1db86e2c1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=1.0,
+logging_strategy=steps,
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=./output/lora_model,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=2,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=./output/lora_model,
+save_on_each_node=False,
+save_safetensors=False,
+save_steps=100000,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+sortish_sampler=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.03,
+warmup_steps=0,
+weight_decay=0.0,
+)
+02/17/2024 22:08:02 - INFO - llmtuner.data.loader - Loading dataset ./output/sft_data/mixture.jsonl...
+02/17/2024 22:08:10 - INFO - llmtuner.model.utils - Gradient checkpointing enabled.
+02/17/2024 22:08:10 - INFO - llmtuner.model.adapter - Fine-tuning method: LoRA
+02/17/2024 22:08:11 - INFO - llmtuner.model.loader - trainable params: 4194304 || all params: 7510167552 || trainable%: 0.0558
+02/17/2024 22:08:11 - INFO - llmtuner.model.utils - Gradient checkpointing enabled.
+02/17/2024 22:08:11 - INFO - llmtuner.model.adapter - Fine-tuning method: LoRA
+02/17/2024 22:08:11 - INFO - llmtuner.model.loader - trainable params: 4194304 || all params: 7510167552 || trainable%: 0.0558
+02/17/2024 22:09:02 - INFO - llmtuner.data.preprocess - Total [[31m7707[0m] samples and [[31m 7.89[0m ] M tokens. 
+[2024-02-17 22:09:04,026] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.13.1, git-hash=unknown, git-branch=unknown
+02/17/2024 22:09:55 - INFO - llmtuner.data.preprocess - Total [[31m7707[0m] samples and [[31m 7.89[0m ] M tokens. 
+[2024-02-17 22:10:24,066] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-02-17 22:10:24,072] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-02-17 22:10:24,072] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-02-17 22:10:24,076] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2024-02-17 22:10:24,076] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2024-02-17 22:10:24,076] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2024-02-17 22:10:24,076] [INFO] [stage_1_and_2.py:143:__init__] Reduce bucket size 500,000,000
+[2024-02-17 22:10:24,076] [INFO] [stage_1_and_2.py:144:__init__] Allgather bucket size 500,000,000
+[2024-02-17 22:10:24,076] [INFO] [stage_1_and_2.py:145:__init__] CPU Offload: False
+[2024-02-17 22:10:24,076] [INFO] [stage_1_and_2.py:146:__init__] Round robin gradient partitioning: False
+[2024-02-17 22:10:25,244] [INFO] [utils.py:791:see_memory_usage] Before initializing optimizer states
+[2024-02-17 22:10:25,245] [INFO] [utils.py:792:see_memory_usage] MA 14.0 GB         Max_MA 14.0 GB         CA 14.01 GB         Max_CA 14 GB 
+[2024-02-17 22:10:25,245] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 107.77 GB, percent = 14.6%
+[2024-02-17 22:10:25,883] [INFO] [utils.py:791:see_memory_usage] After initializing optimizer states
+[2024-02-17 22:10:25,884] [INFO] [utils.py:792:see_memory_usage] MA 14.01 GB         Max_MA 14.03 GB         CA 14.05 GB         Max_CA 14 GB 
+[2024-02-17 22:10:25,885] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 108.08 GB, percent = 14.6%
+[2024-02-17 22:10:25,885] [INFO] [stage_1_and_2.py:533:__init__] optimizer state initialized
+[2024-02-17 22:10:26,023] [INFO] [utils.py:791:see_memory_usage] After initializing ZeRO optimizer
+[2024-02-17 22:10:26,024] [INFO] [utils.py:792:see_memory_usage] MA 14.01 GB         Max_MA 14.01 GB         CA 14.05 GB         Max_CA 14 GB 
+[2024-02-17 22:10:26,024] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 108.08 GB, percent = 14.6%
+[2024-02-17 22:10:26,026] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2024-02-17 22:10:26,026] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-02-17 22:10:26,026] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-02-17 22:10:26,026] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0], mom=[(0.9, 0.999)]
+[2024-02-17 22:10:26,027] [INFO] [config.py:984:print] DeepSpeedEngine configuration:
+[2024-02-17 22:10:26,027] [INFO] [config.py:988:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-02-17 22:10:26,027] [INFO] [config.py:988:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-02-17 22:10:26,027] [INFO] [config.py:988:print]   amp_enabled .................. False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   amp_params ................... False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   bfloat16_enabled ............. True
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   checkpoint_parallel_write_pipeline  False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   checkpoint_tag_validation_enabled  True
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   checkpoint_tag_validation_fail  False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f690ab27fa0>
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   communication_data_type ...... None
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   curriculum_enabled_legacy .... False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   curriculum_params_legacy ..... False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   data_efficiency_enabled ...... False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   dataloader_drop_last ......... False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   disable_allgather ............ False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   dump_state ................... False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   dynamic_loss_scale_args ...... None
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   eigenvalue_enabled ........... False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   eigenvalue_gas_boundary_resolution  1
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   eigenvalue_layer_num ......... 0
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   eigenvalue_max_iter .......... 100
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   eigenvalue_stability ......... 1e-06
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   eigenvalue_tol ............... 0.01
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   eigenvalue_verbose ........... False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   elasticity_enabled ........... False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   fp16_auto_cast ............... None
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   fp16_enabled ................. False
+[2024-02-17 22:10:26,028] [INFO] [config.py:988:print]   fp16_master_weights_and_gradients  False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   global_rank .................. 0
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   grad_accum_dtype ............. None
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   gradient_accumulation_steps .. 64
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   gradient_clipping ............ 0.0
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   gradient_predivide_factor .... 1.0
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   graph_harvesting ............. False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   initial_dynamic_scale ........ 1
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   load_universal_checkpoint .... False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   loss_scale ................... 1.0
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   memory_breakdown ............. False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   mics_hierarchial_params_gather  False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   mics_shard_size .............. -1
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   optimizer_legacy_fusion ...... False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   optimizer_name ............... None
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   optimizer_params ............. None
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   pld_enabled .................. False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   pld_params ................... False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   prescale_gradients ........... False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   scheduler_name ............... None
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   scheduler_params ............. None
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   seq_parallel_communication_data_type  torch.float32
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   sparse_attention ............. None
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   sparse_gradients_enabled ..... False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   steps_per_print .............. inf
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   train_batch_size ............. 256
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   train_micro_batch_size_per_gpu  2
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   use_data_before_expert_parallel_  False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   use_node_local_storage ....... False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   wall_clock_breakdown ......... False
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   weight_quantization_config ... None
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   world_size ................... 2
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   zero_allow_untested_optimizer  True
+[2024-02-17 22:10:26,029] [INFO] [config.py:988:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500,000,000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500,000,000 overlap_comm=False load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-02-17 22:10:26,030] [INFO] [config.py:988:print]   zero_enabled ................. True
+[2024-02-17 22:10:26,030] [INFO] [config.py:988:print]   zero_force_ds_cpu_optimizer .. True
+[2024-02-17 22:10:26,030] [INFO] [config.py:988:print]   zero_optimization_stage ...... 2
+[2024-02-17 22:10:26,030] [INFO] [config.py:974:print_user_config]   json = {
+    "train_batch_size": 256, 
+    "train_micro_batch_size_per_gpu": 2, 
+    "gradient_accumulation_steps": 64, 
+    "zero_optimization": {
+        "stage": 2
+    }, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": true
+    }, 
+    "fp16": {
+        "enabled": false
+    }, 
+    "zero_allow_untested_optimizer": true
+}
+02/17/2024 22:10:26 - WARNING - llmtuner.extras.callbacks - Previous log file in this folder will be deleted.
+{'loss': 1.238, 'learning_rate': 0.0003333333333333333, 'epoch': 0.03}
+{'loss': 1.2521, 'learning_rate': 0.0006666666666666666, 'epoch': 0.07}
+{'loss': 1.2137, 'learning_rate': 0.001, 'epoch': 0.1}
+{'loss': 1.2023, 'learning_rate': 0.0009996740476948384, 'epoch': 0.13}
+{'loss': 1.1936, 'learning_rate': 0.000998696615758975, 'epoch': 0.17}
+{'loss': 1.1725, 'learning_rate': 0.0009970689785771798, 'epoch': 0.2}
+{'loss': 1.1615, 'learning_rate': 0.0009947932582778187, 'epoch': 0.23}
+{'loss': 1.1422, 'learning_rate': 0.0009918724219660014, 'epoch': 0.27}
+{'loss': 1.1859, 'learning_rate': 0.0009883102778550433, 'epoch': 0.3}
+{'loss': 1.1599, 'learning_rate': 0.0009841114703012816, 'epoch': 0.33}
+{'loss': 1.1387, 'learning_rate': 0.0009792814737487206, 'epoch': 0.37}
+{'loss': 1.141, 'learning_rate': 0.0009738265855914012, 'epoch': 0.4}
+{'loss': 1.1326, 'learning_rate': 0.0009677539179628005, 'epoch': 0.43}
+{'loss': 1.1348, 'learning_rate': 0.0009610713884629666, 'epoch': 0.46}
+{'loss': 1.1175, 'learning_rate': 0.0009537877098354786, 'epoch': 0.5}
+{'loss': 1.1138, 'learning_rate': 0.0009459123786076911, 'epoch': 0.53}
+{'loss': 1.1124, 'learning_rate': 0.0009374556627090749, 'epoch': 0.56}
+{'loss': 1.1313, 'learning_rate': 0.0009284285880837946, 'epoch': 0.6}
+{'loss': 1.1024, 'learning_rate': 0.0009188429243149824, 'epoch': 0.63}
+{'loss': 1.1224, 'learning_rate': 0.0009087111692794459, 'epoch': 0.66}
+{'loss': 1.1284, 'learning_rate': 0.0008980465328528219, 'epoch': 0.7}
+{'loss': 1.1116, 'learning_rate': 0.0008868629196864181, 'epoch': 0.73}
+{'loss': 1.1049, 'learning_rate': 0.0008751749110782012, 'epoch': 0.76}
+{'loss': 1.1296, 'learning_rate': 0.0008629977459615654, 'epoch': 0.8}
+{'loss': 1.1249, 'learning_rate': 0.0008503473010366713, 'epoch': 0.83}
+{'loss': 1.1005, 'learning_rate': 0.0008372400700702569, 'epoch': 0.86}
+{'loss': 1.0875, 'learning_rate': 0.0008236931423909139, 'epoch': 0.9}
+{'loss': 1.1042, 'learning_rate': 0.0008097241806078616, 'epoch': 0.93}
+{'loss': 1.0931, 'learning_rate': 0.0007953513975822755, 'epoch': 0.96}
+{'loss': 1.1075, 'learning_rate': 0.0007805935326811913, 'epoch': 1.0}
+{'loss': 1.0858, 'learning_rate': 0.0007654698273449434, 'epoch': 1.03}
+{'loss': 1.1182, 'learning_rate': 0.00075, 'epoch': 1.06}
+{'loss': 1.075, 'learning_rate': 0.0007342042203498951, 'epoch': 1.1}
+{'loss': 1.094, 'learning_rate': 0.0007181030830777837, 'epoch': 1.13}
+{'loss': 1.0911, 'learning_rate': 0.0007017175809949043, 'epoch': 1.16}
+{'loss': 1.0922, 'learning_rate': 0.0006850690776699573, 'epoch': 1.2}
+{'loss': 1.0685, 'learning_rate': 0.0006681792795750876, 'epoch': 1.23}
+{'loss': 1.0677, 'learning_rate': 0.0006510702077847864, 'epoch': 1.26}
+{'loss': 1.1275, 'learning_rate': 0.0006337641692646106, 'epoch': 1.3}
+{'loss': 1.0773, 'learning_rate': 0.0006162837277871552, 'epoch': 1.33}
+{'loss': 1.0801, 'learning_rate': 0.0005986516745132, 'epoch': 1.36}
+{'loss': 1.0839, 'learning_rate': 0.0005808909982763825, 'epoch': 1.39}
+{'loss': 1.0848, 'learning_rate': 0.0005630248556101448, 'epoch': 1.43}
+{'loss': 1.0826, 'learning_rate': 0.0005450765405560327, 'epoch': 1.46}
+{'loss': 1.056, 'learning_rate': 0.0005270694542927088, 'epoch': 1.49}
+{'loss': 1.0727, 'learning_rate': 0.0005090270746252802, 'epoch': 1.53}
+{'loss': 1.0695, 'learning_rate': 0.0004909729253747197, 'epoch': 1.56}
+{'loss': 1.0766, 'learning_rate': 0.00047293054570729125, 'epoch': 1.59}
+{'loss': 1.062, 'learning_rate': 0.0004549234594439674, 'epoch': 1.63}
+{'loss': 1.0813, 'learning_rate': 0.00043697514438985536, 'epoch': 1.66}
+{'loss': 1.0795, 'learning_rate': 0.00041910900172361764, 'epoch': 1.69}
+{'loss': 1.0765, 'learning_rate': 0.00040134832548680005, 'epoch': 1.73}
+{'loss': 1.062, 'learning_rate': 0.00038371627221284497, 'epoch': 1.76}
+{'loss': 1.0811, 'learning_rate': 0.0003662358307353897, 'epoch': 1.79}
+{'loss': 1.0876, 'learning_rate': 0.0003489297922152136, 'epoch': 1.83}
+{'loss': 1.0682, 'learning_rate': 0.0003318207204249124, 'epoch': 1.86}
+{'loss': 1.0631, 'learning_rate': 0.0003149309223300428, 'epoch': 1.89}
+{'loss': 1.056, 'learning_rate': 0.0002982824190050958, 'epoch': 1.93}
+{'loss': 1.0625, 'learning_rate': 0.0002818969169222162, 'epoch': 1.96}
+{'loss': 1.0824, 'learning_rate': 0.000265795779650105, 'epoch': 1.99}
+{'loss': 1.0558, 'learning_rate': 0.0002500000000000001, 'epoch': 2.03}
+{'loss': 1.0751, 'learning_rate': 0.00023453017265505672, 'epoch': 2.06}
+{'loss': 1.0599, 'learning_rate': 0.00021940646731880887, 'epoch': 2.09}
+{'loss': 1.0661, 'learning_rate': 0.00020464860241772455, 'epoch': 2.13}
+{'loss': 1.0636, 'learning_rate': 0.0001902758193921385, 'epoch': 2.16}
+{'loss': 1.0555, 'learning_rate': 0.00017630685760908622, 'epoch': 2.19}
+{'loss': 1.0383, 'learning_rate': 0.00016275992992974308, 'epoch': 2.23}
+{'loss': 1.0514, 'learning_rate': 0.00014965269896332885, 'epoch': 2.26}
+{'loss': 1.0942, 'learning_rate': 0.00013700225403843468, 'epoch': 2.29}
+{'loss': 1.0562, 'learning_rate': 0.00012482508892179884, 'epoch': 2.32}
+{'loss': 1.0598, 'learning_rate': 0.00011313708031358183, 'epoch': 2.36}
+{'loss': 1.0648, 'learning_rate': 0.00010195346714717812, 'epoch': 2.39}
+{'loss': 1.0656, 'learning_rate': 9.128883072055411e-05, 'epoch': 2.42}
+{'loss': 1.0569, 'learning_rate': 8.115707568501768e-05, 'epoch': 2.46}
+{'loss': 1.0352, 'learning_rate': 7.157141191620547e-05, 'epoch': 2.49}
+{'loss': 1.0547, 'learning_rate': 6.254433729092517e-05, 'epoch': 2.52}
+{'loss': 1.0435, 'learning_rate': 5.4087621392308884e-05, 'epoch': 2.56}
+{'loss': 1.0594, 'learning_rate': 4.621229016452155e-05, 'epoch': 2.59}
+{'loss': 1.0455, 'learning_rate': 3.892861153703342e-05, 'epoch': 2.62}
+{'loss': 1.0606, 'learning_rate': 3.224608203719953e-05, 'epoch': 2.66}
+{'loss': 1.0688, 'learning_rate': 2.617341440859883e-05, 'epoch': 2.69}
+{'loss': 1.0623, 'learning_rate': 2.0718526251279347e-05, 'epoch': 2.72}
+{'loss': 1.0502, 'learning_rate': 1.5888529698718347e-05, 'epoch': 2.76}
+{'loss': 1.0681, 'learning_rate': 1.1689722144956671e-05, 'epoch': 2.79}
+{'loss': 1.0768, 'learning_rate': 8.127578033998662e-06, 'epoch': 2.82}
+{'loss': 1.0467, 'learning_rate': 5.206741722181385e-06, 'epoch': 2.86}
+{'loss': 1.0626, 'learning_rate': 2.9310214228202015e-06, 'epoch': 2.89}
+{'loss': 1.0459, 'learning_rate': 1.3033842410251073e-06, 'epoch': 2.92}
+{'loss': 1.0303, 'learning_rate': 3.259523051615254e-07, 'epoch': 2.96}
+{'loss': 1.0736, 'learning_rate': 0.0, 'epoch': 2.99}
+{'train_runtime': 10936.5636, 'train_samples_per_second': 2.114, 'train_steps_per_second': 0.008, 'train_loss': 1.0930421617296007, 'epoch': 2.99}
+***** train metrics *****
+  epoch                    =       2.99
+  train_loss               =      1.093
+  train_runtime            = 3:02:16.56
+  train_samples_per_second =      2.114
+  train_steps_per_second   =      0.008
+Figure saved: ./output/lora_model/training_loss.png
+02/18/2024 01:12:55 - WARNING - llmtuner.extras.ploting - No metric eval_loss to plot.
+[2024-02-18 01:12:58,078] [INFO] [launch.py:347:main] Process 24991 exits successfully.
+[2024-02-18 01:12:59,080] [INFO] [launch.py:347:main] Process 24990 exits successfully.
