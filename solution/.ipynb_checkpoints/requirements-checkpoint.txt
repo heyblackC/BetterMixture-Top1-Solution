@@ -1,0 +1,4 @@
+fasttext
+pynndescent
+sentence_transformers
+py-data-juicer

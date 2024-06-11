@@ -1,0 +1,35 @@
+# global parameters
+project_name: 'Data-Juicer-recipes-alpaca-cot-zh'
+dataset_path: '../output/sft_data/mixture_raw_math_only.jsonl'  # path to your dataset directory or file
+export_path: '../output/sft_data/math_scorer_juicer/mixture_raw_math_only_juicer.jsonl'
+# output/sft_data/mixture_reward.jsonl
+
+np: 50  # number of subprocess to process your dataset
+open_tracer: true
+
+# process schedule
+# a list of several process operators with their arguments
+process:
+
+  # - specified_field_filter:                                 # filter text with the specified field info out of specific range
+  #     field_key: 'meta.Multi-round Dialog'                                           # the target key corresponding to multi-level field information need to be separated by '.'
+  #     target_value: 'False'                                
+  
+  - language_id_score_filter:
+      lang: [zh,en]
+      min_score: 0.01 # should be 0.8
+
+  - document_deduplicator: # 16957516
+      lowercase: true # whether to convert text to lower case
+      ignore_non_character: false
+  
+  # 0202新增
+  - document_simhash_deduplicator: # 9873214
+      text_key: instruction
+      tokenization: character
+      window_size: 4  # small window size for short texts
+      lowercase: true
+      ignore_pattern: '\p{P}'
+      num_blocks: 10
+      hamming_distance: 8  # larger hamming distance threshold for short texts
+  

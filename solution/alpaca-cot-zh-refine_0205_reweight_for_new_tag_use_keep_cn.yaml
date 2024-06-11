@@ -1,0 +1,53 @@
+# global parameters
+project_name: 'Data-Juicer-recipes-alpaca-cot-zh'
+dataset_path: '../output/sft_data/mixture_raw_reweight_task_type_add_new_filtered_selected.jsonl'  # path to your dataset directory or file
+export_path: '../output/sft_data/juicer_out/task_type_mixback_new_keep_cn.jsonl'
+
+np: 50  # number of subprocess to process your dataset
+open_tracer: true
+
+# process schedule
+# a list of several process operators with their arguments
+process:
+
+  - specified_field_filter:                                 # filter text with the specified field info out of specific range
+      field_key: 'meta.Multi-round Dialog'                                           # the target key corresponding to multi-level field information need to be separated by '.'
+      target_value: 'False'                                
+  
+  - language_id_score_filter:
+      lang: [zh,en]
+      min_score: 0.7 # should be 0.8
+
+  - document_deduplicator: # 16957516
+      lowercase: true # whether to convert text to lower case
+      ignore_non_character: false
+      
+  - document_simhash_deduplicator: # 9873214
+      tokenization: character
+      window_size: 4  # small window size for short texts
+      lowercase: true
+      ignore_pattern: '\p{P}'
+      num_blocks: 10
+      hamming_distance: 8  # larger hamming distance threshold for short texts
+
+  - text_length_filter: # 16954317
+      min_len: 20
+
+  - document_simhash_deduplicator: # 9873214
+      text_key: output
+      tokenization: character
+      window_size: 4  # small window size for short texts
+      lowercase: true
+      ignore_pattern: '\p{P}'
+      num_blocks: 10
+      hamming_distance: 8  # larger hamming distance threshold for short texts
+
+  - document_minhash_deduplicator:                          
+      tokenization: character                                    
+      window_size: 5                                        
+      num_permutations: 256                                   
+      jaccard_threshold: 0.7                                 
+      num_bands: null                                        
+      num_rows_per_band: null                                 
+      lowercase: true                                         
+      ignore_pattern: null
