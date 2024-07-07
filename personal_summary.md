@@ -36,8 +36,12 @@ Jenna picked 20/2 = <<20/2=10>>10 apples\nThey both picked 10+20 = <<10+20=30>>3
 最终我的方案取得了初赛第一，复赛第三，总榜第一，拿到了最后的冠军，以及1万元奖金（税后其实只有8000元）。
 ### 赛事结束后的交流和分享
 竞赛介绍页面：[https://tianchi.aliyun.com/competition/entrance/532174](https://tianchi.aliyun.com/competition/entrance/532174)
+
 BetterMixture获奖名单页面：[https://tianchi.aliyun.com/forum/post/677218](https://tianchi.aliyun.com/forum/post/677218)
+
 BetterMixture第一名方案分享帖子-by柠子小分队：[https://tianchi.aliyun.com/forum/post/680153](https://tianchi.aliyun.com/forum/post/680153)
+
 整体方案细节技术分享帖子：
 [https://github.com/heyblackC/BetterMixture-Top1-Solution?spm=a2c22.21852664.0.0.3b665a84LNlz8r](https://github.com/heyblackC/BetterMixture-Top1-Solution?spm=a2c22.21852664.0.0.3b665a84LNlz8r)
+
 最后，我和总榜第二名的队伍交流了各自的方案，会发现其实大家有共同的认知，也有完全不一样的选择，例如，我们都认为数学数据很重要，都大量地加入了数学数据。但是第二名的队伍认为有些数据来源本身就是低质量的，可以全部抛弃，我则没有采用这种做法。还有就是第二名队伍用的学习率也和我不一样，我是1e-3，他们是1e-4，这些差异点很值得后续进一步研究和探讨。
