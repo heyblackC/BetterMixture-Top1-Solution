@@ -38,6 +38,6 @@ Jenna picked 20/2 = <<20/2=10>>10 apples\nThey both picked 10+20 = <<10+20=30>>3
 竞赛介绍页面：[https://tianchi.aliyun.com/competition/entrance/532174](https://tianchi.aliyun.com/competition/entrance/532174)
 BetterMixture获奖名单页面：[https://tianchi.aliyun.com/forum/post/677218](https://tianchi.aliyun.com/forum/post/677218)
 BetterMixture第一名方案分享帖子-by柠子小分队：[https://tianchi.aliyun.com/forum/post/680153](https://tianchi.aliyun.com/forum/post/680153)
-整体方案细节技术分享帖子：![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2024/png/107356657/1718166014337-836f05a0-7fdb-489b-8f97-1d71fe1d7f72.png#clientId=u8a43470a-3b7c-4&from=paste&height=94&id=u67de8719&originHeight=188&originWidth=2418&originalType=binary&ratio=2&rotation=0&showTitle=false&size=190877&status=done&style=none&taskId=udf2d2b23-fe45-4216-86e1-7a88e4a332a&title=&width=1209)
+整体方案细节技术分享帖子：
 [https://github.com/heyblackC/BetterMixture-Top1-Solution?spm=a2c22.21852664.0.0.3b665a84LNlz8r](https://github.com/heyblackC/BetterMixture-Top1-Solution?spm=a2c22.21852664.0.0.3b665a84LNlz8r)
 最后，我和总榜第二名的队伍交流了各自的方案，会发现其实大家有共同的认知，也有完全不一样的选择，例如，我们都认为数学数据很重要，都大量地加入了数学数据。但是第二名的队伍认为有些数据来源本身就是低质量的，可以全部抛弃，我则没有采用这种做法。还有就是第二名队伍用的学习率也和我不一样，我是1e-3，他们是1e-4，这些差异点很值得后续进一步研究和探讨。
